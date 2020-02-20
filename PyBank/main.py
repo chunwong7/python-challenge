@@ -31,6 +31,9 @@ increasepos = diff.index(max(diff))
 decrease = min(diff)
 decreasepos = diff.index(min(diff))
 months = len(monthsarray)
+increasemonth = monthsarray[increasepos+1]
+decreasemonth = monthsarray[decreasepos+1]
+
 
 #print(len(monthsarray))
 #print(total)
@@ -48,10 +51,17 @@ with open(output_path, 'w', newline='') as csvfile:
     csvwriter = csv.writer(csvfile)
     csvwriter.writerow(["Financial Analysis"])
     csvwriter.writerow(["-------------------------------"])
-    csvwriter.writerows([[f"Total Months:  {months}"],
+    csvwriter.writerows([
+    [f"Total Months:  {months}"],
     [f"Total: {total}"],
     [f"Average Change: ${averagechange}"],
-    [f"Greatest Increase in Profits: {increasepos} ({increase})"],
-    [f"Greatest Decrease in Profits: {decreasepos} ({decrease})"]])
+    [f"Greatest Increase in Profits: {increasemonth} (${increase})"],
+    [f"Greatest Decrease in Profits: {decreasemonth} (${decrease})"]
+    ])
 
+
+with open(output_path, 'r') as csvfile:
+    csvreader2 = csv.reader(csvfile, delimiter=',')
+    for row in csvreader2:
+        print(row)
 
