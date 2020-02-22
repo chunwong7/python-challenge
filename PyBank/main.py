@@ -1,6 +1,6 @@
 import os
 import csv
-total = 0
+#total = 0
 monthsarray = []
 profit = []
 diff = []
@@ -12,7 +12,7 @@ with open(budget_csv, 'r') as csvfile:
     next(csvreader)
     for row in csvreader:
         monthsarray.append(row[0])
-        total += int(row[1])
+        #total += int(row[1])
         profit.append(int(row[1]))
     #print(len(profit))
     for x in range(len(profit)):
@@ -33,7 +33,7 @@ decreasepos = diff.index(min(diff))
 months = len(monthsarray)
 increasemonth = monthsarray[increasepos+1]
 decreasemonth = monthsarray[decreasepos+1]
-
+total = sum(profit)
 
 #print(len(monthsarray))
 #print(total)
@@ -46,14 +46,14 @@ averagechange = sum(diff) / len(diff)
 
 
 
-output_path = os.path.join("output.csv")
+output_path = os.path.join("bankoutput.csv")
 with open(output_path, 'w', newline='') as csvfile:
     csvwriter = csv.writer(csvfile)
     csvwriter.writerow(["Financial Analysis"])
     csvwriter.writerow(["-------------------------------"])
     csvwriter.writerows([
     [f"Total Months:  {months}"],
-    [f"Total: {total}"],
+    [f"Total: ${total}"],
     [f"Average Change: ${averagechange}"],
     [f"Greatest Increase in Profits: {increasemonth} (${increase})"],
     [f"Greatest Decrease in Profits: {decreasemonth} (${decrease})"]

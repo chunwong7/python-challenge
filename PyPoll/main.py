@@ -39,7 +39,10 @@ correypercent = (votesforcorrey / totalvote) * 100
 lipercent = (votesforli / totalvote) * 100
 otooleypercent = (votesforotooley / totalvote) * 100
 
-#khanpercent = float("{0:.3f}".format(khanpercent))
+khanpercent = float("{0:.3f}".format(khanpercent))
+correypercent = float("{0:.3f}".format(correypercent))
+lipercent = float("{0:.3f}".format(lipercent))
+otooleypercent = float("{0:.3f}".format(otooleypercent))
 
 #print(totalvote)
 #print(votesforkhan)
